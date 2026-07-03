@@ -8,6 +8,9 @@ public class ProductOfAlltheNumbers_Using_Reduce {
 		List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 		Integer reduceResult = numbers.stream().reduce(1, (i, j) -> i * j);
 		System.out.println(reduceResult);
+		
+		Integer reduceResult1 = numbers.stream().reduce(0, (i, j) -> i + j);
+		System.out.println(reduceResult1);
 
 	}
 }

@@ -1,1 +1,12 @@
 /.metadata/
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Java
+bin/
+*.class
+
+# Logs
+*.log
