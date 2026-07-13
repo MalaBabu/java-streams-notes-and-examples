@@ -34,7 +34,12 @@ public class SortEmployeeOnSalaryAndName {
 		
 		System.out.println(ascendingOrderList);
 		
+		double average = employeeList.stream()
+				.mapToDouble(Employee::getSalary)
+				.average()
+				.orElse(0);
 
+		System.out.println(average);
 		
 		/* Console:
 		 * 

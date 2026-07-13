@@ -15,6 +15,7 @@ public class FindHighestSalaryInEachDepartment {
 
 		List<Employee> employeeList = getEmployeeList();
 
+		// Highest salary in each department
 		Map<Integer, Optional<Employee>> collect = employeeList.stream().collect(Collectors
 				.groupingBy(Employee::getDepartmentId, 
 						Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
@@ -34,6 +35,21 @@ public class FindHighestSalaryInEachDepartment {
 		//Console:
         //{1=Employee [departmentId=1, employeeName=Surendra, employeeId=1002, salary=150000.0], 2=Employee [departmentId=2, employeeName=Suri, employeeId=1004, salary=92000.0], 3=Employee [departmentId=3, employeeName=Kusalu, employeeId=1005, salary=35000.0]}
 
+	
+		// Group Employees by DepartmentID
+
+		Map<Integer, List<Employee>> mapGroupedEmployeesOnDepartementID = employeeList.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartmentId, Collectors.toList()));
+
+		System.out.println(mapGroupedEmployeesOnDepartementID);
+		
+		//Sort Employees by Salary
+
+		List<Employee> sortedEmployees = employeeList.stream()
+				.sorted(Comparator.comparing(Employee::getSalary).reversed()).toList();
+		
+		System.out.println(sortedEmployees);
+	
 	}
 
 	public static List<Employee> getEmployeeList() {
